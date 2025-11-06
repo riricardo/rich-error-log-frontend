@@ -5,7 +5,7 @@ function Login() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    navigate("/home");
+    navigate("/home/dashboard");
   };
 
   return (
