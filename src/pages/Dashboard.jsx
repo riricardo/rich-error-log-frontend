@@ -1,7 +1,7 @@
 const Dashboard = () => {
   return (
     <>
-      <select defaultValue="All" className="select m-4">
+      <select defaultValue="All" className="select m-3">
         <option>All</option>
         <option>App1</option>
         <option>App2</option>
@@ -40,7 +40,7 @@ const Dashboard = () => {
         </table>
       </div>
 
-      <div className="join flex justify-center m-4">
+      <div className="join flex justify-center m-3">
         <button className="join-item btn">1</button>
         <button className="join-item btn">2</button>
         <button className="join-item btn btn-disabled">...</button>
