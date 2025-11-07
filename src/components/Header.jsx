@@ -7,7 +7,7 @@ const Header = () => {
         <Link to="/home/dashboard" style={{ marginRight: 10 }}>
           Dashboard
         </Link>
-        <Link to="/home/key-list">Key List</Link>
+        <Link to="/home/tenant">Tenants</Link>
       </div>
       <div className="flex-none">
         <button>Logout</button>

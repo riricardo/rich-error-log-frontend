@@ -9,7 +9,7 @@ const Home = () => {
       <Header />
       <Routes>
         <Route path="dashboard" element={<Dashboard />} />
-        <Route path="key-list" element={<KeyList />} />
+        <Route path="tenant" element={<KeyList />} />
       </Routes>
     </div>
   );
