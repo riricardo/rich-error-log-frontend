@@ -99,7 +99,9 @@ const Dashboard = () => {
         </button>
         <button className="join-item btn">Page {page}</button>
         <button
-          className={`join-item btn ${page == totalPages && "btn-disabled"}`}
+          className={`join-item btn ${
+            (page == totalPages || totalPages == 0) && "btn-disabled"
+          }`}
           onClick={getNextPage}
         >
           »
