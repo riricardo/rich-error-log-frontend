@@ -15,6 +15,7 @@ export default function AuthProvider({ children }) {
 
   function logout() {
     sessionStorage.removeItem("token");
+    window.location.reload();
   }
 
   return (

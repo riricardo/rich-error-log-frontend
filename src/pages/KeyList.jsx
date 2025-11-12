@@ -1,23 +1,49 @@
 import { useEffect } from "react";
+import { useState } from "react";
 import api from "../services/apiService";
 
 const KeyList = () => {
+  const [keys, setKeys] = useState([]);
+  const [newKey, setNewKey] = useState("");
+
   useEffect(() => {
     fetchKeys();
   }, []);
 
   async function fetchKeys() {
     const res = await api.get("/tenant");
+    setKeys(res.data);
+  }
 
-    console.log(res.data);
+  async function handleAddKey(e) {
+    e.preventDefault();
+
+    if (newKey.trim() === "") {
+      alert("Application name cannot be empty");
+      return;
+    }
+
+    await api.post("/tenant", { name: newKey });
+    setNewKey("");
+    fetchKeys();
   }
 
   return (
     <>
-      <div className="flex m-3 gap-3">
-        <input type="text" placeholder="Application name" className="input" />
-        <button className="btn btn-primary">Add</button>
-      </div>
+      <form onSubmit={handleAddKey}>
+        <div className="flex m-3 gap-3">
+          <input
+            type="text"
+            placeholder="Application name"
+            className="input"
+            value={newKey}
+            onChange={(e) => setNewKey(e.target.value)}
+          />
+          <button type="submit" className="btn btn-primary">
+            Add
+          </button>
+        </div>
+      </form>
       <div className="overflow-x-auto">
         <table className="table">
           <thead>
@@ -28,21 +54,13 @@ const KeyList = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
-            </tr>
-            <tr>
-              <td>Hart Hagerty</td>
-              <td>Desktop Support Technician</td>
-              <td>Purple</td>
-            </tr>
-            <tr>
-              <td>Brice Swyre</td>
-              <td>Tax Accountant</td>
-              <td>Red</td>
-            </tr>
+            {keys.map((key) => (
+              <tr key={key.id}>
+                <td>{key.name}</td>
+                <td>{key.apiKey}</td>
+                <td>{new Date(key.createdAt).toLocaleDateString()}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
