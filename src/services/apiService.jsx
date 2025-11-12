@@ -19,8 +19,9 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response && [401, 403].includes(error.response.status)) {
+      console.log("Removing token due to auth error...");
       sessionStorage.removeItem("token");
-      window.location.href = "/login";
+      window.location.reload();
     }
     return Promise.reject(error);
   }

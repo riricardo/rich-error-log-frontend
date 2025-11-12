@@ -1,4 +1,17 @@
+import { useEffect } from "react";
+import api from "../services/apiService";
+
 const KeyList = () => {
+  useEffect(() => {
+    fetchKeys();
+  }, []);
+
+  async function fetchKeys() {
+    const res = await api.get("/tenant");
+
+    console.log(res.data);
+  }
+
   return (
     <>
       <div className="flex m-3 gap-3">
@@ -7,7 +20,6 @@ const KeyList = () => {
       </div>
       <div className="overflow-x-auto">
         <table className="table">
-          {/* head */}
           <thead>
             <tr>
               <th>Application Name</th>
@@ -16,19 +28,16 @@ const KeyList = () => {
             </tr>
           </thead>
           <tbody>
-            {/* row 1 */}
             <tr>
               <td>Cy Ganderton</td>
               <td>Quality Control Specialist</td>
               <td>Blue</td>
             </tr>
-            {/* row 2 */}
             <tr>
               <td>Hart Hagerty</td>
               <td>Desktop Support Technician</td>
               <td>Purple</td>
             </tr>
-            {/* row 3 */}
             <tr>
               <td>Brice Swyre</td>
               <td>Tax Accountant</td>

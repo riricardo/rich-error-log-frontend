@@ -5,7 +5,7 @@ const Header = () => {
   const { logout } = useAuth();
 
   return (
-    <header className="navbar shadow-sm bg-base-300">
+    <header className="navbar shadow-sm bg-primary text-white">
       <div className="flex-1">
         <Link to="/home/dashboard" style={{ marginRight: 10 }}>
           Dashboard
