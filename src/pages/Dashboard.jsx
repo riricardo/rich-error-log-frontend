@@ -49,6 +49,7 @@ const Dashboard = () => {
     const tenantId = e.target.value;
     setSelectedTenant(tenantId);
 
+    setPage(1);
     await fetchErrors(tenantId, 1);
   }
 
