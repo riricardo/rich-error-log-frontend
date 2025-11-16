@@ -8,3 +8,7 @@ This project is an error log website built to collect, display, and analyze erro
 - View detailed error reports
 - Track error frequency and patterns
 - User-friendly dashboard for error analysis
+
+**Access**
+
+- The app is published in: https://rich-error-log.web.app/
